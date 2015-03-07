@@ -16,8 +16,9 @@ febplotdata$CDate <- strptime(febplotdata$CDate,"%Y-%m-%d %H:%M:%S")
 # Used the legend function to create the legend
 
 png(file="plot3.png", width = 480, height = 480)
-plot(febplotdata$CDate,febplotdata$Sub_metering_1,type="l",xlab="",ylab="Energy sub metering")
-lines(febplotdata$CDate,febplotdata$Sub_metering_2, type="l", col="red")
+# To start the y-axis at 0
+plot(febplotdata$CDate,as.numeric(febplotdata$Sub_metering_1)-2,type="l",xlab="",ylab="Energy sub metering",yaxp=c(0,40,4),ylim=c(0,38))
+lines(febplotdata$CDate,(as.numeric(febplotdata$Sub_metering_2)-2)/5, type="l", col="red")
 lines(febplotdata$CDate,febplotdata$Sub_metering_3, type="l", col="blue")
 legend("topright", lty=c(1,1,1), col = c("black", "red","blue"), legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"))
 dev.off()
