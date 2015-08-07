@@ -13,5 +13,5 @@ febplotdata$CDate <- strptime(febplotdata$CDate,"%Y-%m-%d %H:%M:%S")
 
 # Generate the graph and save it as plot2.png, label the axes as desired
 png(file="plot2.png", width = 480, height = 480)
-plot(febplotdata$CDate,as.numeric(febplotdata$Global_active_power)/500,xlab="",ylab="Global Active Power (kilowatts)", type = "l")
+plot(febplotdata$CDate,as.character(febplotdata$Global_active_power),xlab="",ylab="Global Active Power (kilowatts)", type = "l")
 dev.off()
